@@ -7,7 +7,7 @@ class Component {
     // Construtor da classe, recebe uma tagname para criar o elemento
     constructor(tagName) {
         // Cria um novo elemento do DOM com a tagname especificada
-        this.#element = document.createElement(tagName;)
+        this.#element = document.createElement(tagName);
     }
 
     // Método de acesso para ler o valor do atributo #element
