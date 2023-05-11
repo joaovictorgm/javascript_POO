@@ -21,5 +21,9 @@ form.render()
 label.render()
 
 form.addChildren(input)
-
-form.addChildren
+form.addChildren(
+    new Component('br'),
+    new Component('br'),
+    new Label('Data de nascimento:' , form, {htmlFor: 'birthdayInput'}),
+    new Input(form, {id: 'birthdayInput', name: 'birthday', type: 'date'})
+)
