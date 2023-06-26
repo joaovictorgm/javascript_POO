@@ -1,3 +1,5 @@
+const Account = require('./account')
+
 module.exports = class User {
     constructor(fullName, email, account) {
         this.fullName = fullName

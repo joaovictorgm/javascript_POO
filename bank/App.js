@@ -1,4 +1,6 @@
-module.export = class App {
+const User = require('./User')
+
+module.exports = class App {
     static #users = []
     static #loanInterestRate = 0
 
@@ -9,8 +11,8 @@ module.export = class App {
             return
         }
 
-        const account = new account()
-        const user  = new user(fullName,email, account)
+        const account = new Account();
+        const user  = new User(fullName,email, account)
         App.#users.push(user)
         console.log("Usuário criado com sucesso!")
     }
@@ -26,7 +28,7 @@ module.export = class App {
                return
            }
            user.account.deposit(value)
-           console.log("Depósito realizado")
+           console.log(`Depósito de R$${value} realizado com sucesso`)
        }
 
        static transfer(senderEmail, receiverEmail, value) {
@@ -35,7 +37,14 @@ module.export = class App {
                console.log("Remetente não encontrado")
                return
            }
+
+        const receiver = App.findUserByEmail(receiverEmail)
+        if(!receiver) {
+            console.log("Úsuario destinátario não encontrado")
+            return
+        }
            sender.account.transfer(senderEmail, receiverEmail, value)
+           console.log(`Transferencia de R$${value} realizado com sucesso`)
        }
 
        static takeLoan(email, value, numInstallments) {
