@@ -5,5 +5,4 @@ module.exports = class Transfer {
        this.value = value
        this.creationDate = new Date()  
     }
-
 }
